@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: httpd-deployment
+  namespace: demo-gitops
   labels:
     app: httpd
 spec:
@@ -31,6 +32,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: httpd-html
+  namespace: demo-gitops
 data:
   index.html: |
     <html>
@@ -44,6 +46,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: httpd-service
+  namespace: demo-gitops
 spec:
   type: LoadBalancer
   selector:
